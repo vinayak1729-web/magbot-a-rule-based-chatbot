@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Magbot</h2>
+        </div>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-message bot-message">Hello! How can I help you today?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+  <script >
+       function sendMessage() {
+    var userInput = document.getElementById("userInput").value;
+    
+    function getBotResponse(userInput) {
+        if (userInput.toLowerCase().includes("hello")) {
+            return "Hello there! How can I assist you?";
+        } 
+        else if (userInput.toLowerCase().includes("hi")) {
+            return "Hello there! How can I assist you?";
+        }
+        else if (userInput.toLowerCase().includes("heyy")) {
+            return "Hello there! How can I assist you?";
+        } 
+        else if (userInput.toLowerCase().includes("how are you")) {
+            return "I'm fine what about you!";
+        }
+        else if (userInput.toLowerCase().includes("i am fine")) {
+            return "what can i do for you?";
+        }
+        else if (userInput.toLowerCase().includes("what is your name")) {
+            return "my self mag , means my assistant guide means your assitant guide";
+        }
+        else if (userInput.toLowerCase().includes("where do you leave")) {
+            return "i leave inside your computer";
+        }
+        else if (userInput.toLowerCase().includes("who are you")) {
+            return "i am an assitant chat bot!!";
+        }
+        else if(userInput.toLowerCase().includes("my self")){
+          
+                return "nice to chat with u sir";
+            
+        }
+        else if(userInput.toLowerCase().includes("my name is")){
+           
+                return "nice name sir, i am mag your chat bot";
+          
+        }
+        else{
+                return "sorry i dont know";
+            }
+    }
+
+    var chatBox = document.getElementById("chatBox");
+
+
+    
+    // Display user message
+    var userMessage = document.createElement("div");
+    userMessage.className = "chat-message user-message";
+    userMessage.textContent = userInput;
+    chatBox.appendChild(userMessage);
+
+    // Simulate bot response
+    var botResponse = getBotResponse(userInput);
+
+    var botMessage = document.createElement("div");
+    botMessage.className = "chat-message bot-message";
+    botMessage.textContent = botResponse;
+    chatBox.appendChild(botMessage);
+
+    // Clear the user input
+    document.getElementById("userInput").value = "";
+
+    // Scroll to the bottom of the chat box
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+
+    </script> 
+  
+</body>
+</html>
